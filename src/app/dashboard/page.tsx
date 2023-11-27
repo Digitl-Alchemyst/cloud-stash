@@ -6,7 +6,7 @@ export default function Dashboard() {
   const { userId } = auth();
 
   return (
-    <div className='p-12 items-center justify-center '>
+    <div className='items-center justify-center'>
       <Dropzone />
     </div>
   )
