@@ -1,10 +1,62 @@
 /* eslint-disable react/function-component-definition */
 'use client';
+
+import { useState } from 'react';
+import { useUser } from '@clerk/nextjs';
 import { cn } from '@/util/util';
-import React from 'react';
 import DropzoneComponent from 'react-dropzone';
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { db, storage } from '#/firebase';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 function Dropzone() {
+
+  const [loading, setLoading] = useState(false);
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  const onDrop = (acceptedFiles: File[]) => {
+    acceptedFiles.forEach(file => {
+      const reader = new FileReader();
+
+      reader.onabort = () => console.log('File reading was aborted.')
+      reader.onerror = () => console.log('File reading has failed.')
+      reader.onload = async () => {
+        await uploadFile(file);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  };
+
+  const uploadFile = async (selectedFile: File) => {
+    if (loading) return;
+    if (!user) return;
+
+    setLoading(true);
+
+    //TODO: Implment Firebase Converters
+    const docRef = await addDoc(collection(db, 'users', user.id, 'files'),{
+      userId: user.id,
+      filename:selectedFile.name,
+      fullName:user.fullName,
+      profileImg: user.imageUrl,
+      timestamp: serverTimestamp(),
+      type: selectedFile.type,
+      size: selectedFile.size,
+    });
+
+    const fileRef = ref(storage, `users/${user.id}/files/${docRef.id}`);
+
+    uploadBytes(fileRef, selectedFile).then(async (snapshot) => {
+      const downloadURL = await getDownloadURL(fileRef);
+
+      await updateDoc(doc(db, 'users', user.id, 'files', docRef.id), {
+        downloadURL: downloadURL,
+      });
+    });
+
+    setLoading(false);
+  };
+
   const maxSize = 20971520;
 
   return (
@@ -12,7 +64,7 @@ function Dropzone() {
       <DropzoneComponent
         minSize={0}
         maxSize={maxSize}
-        onDrop={(acceptedFiles) => console.log(acceptedFiles)}
+        onDrop={onDrop}
       >
         {({
           getRootProps,
