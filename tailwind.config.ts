@@ -2,17 +2,15 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
 content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
     './src/util/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/store/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       lineClamp: {
-        '8': '8', // You can add more line clamp values here if needed
+        '8': '8', 
         '15': '15', 
       },
       colors: {

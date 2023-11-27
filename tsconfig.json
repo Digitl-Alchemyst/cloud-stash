@@ -18,8 +18,6 @@
         "name": "next"
       }
     ],
-    "rootDir": "./",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@/a/*": ["./src/app/*"],
@@ -28,10 +26,7 @@
       "@/l/*": ["./src/lib/*"],
       "@/s/*": ["./src/store/*"],
       "@/u/*": ["./src/util/*"],
-      "#/*": ["./*"],
-      "$/*": ["./schemas/*"],
-      "matrix-js-sdk": ["node_modules/@types/matrix-js-sdk/index.d.ts"],
-      "react": ["node_modules/react"]
+      "#/*": ["./*"]
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
