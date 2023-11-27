@@ -72,8 +72,8 @@ export default function Home() {
             <Image
               src='/ProtectFilesLight.png'
               alt='clip art image'
-              width={200}
-              height={250}
+              width={150}
+              height={150}
             />
             <h6 className='text-xl font-semibold'>
               Store and protect your files
@@ -88,8 +88,8 @@ export default function Home() {
             <Image
               src='/SharedContentLight.png'
               alt='clip art image'
-              width={200}
-              height={250}
+              width={150}
+              height={150}
             />
             <h6 className='text-xl font-semibold'>Share your content</h6>
             <p className='text-csdark-700 dark:text-cslight-700'>
@@ -102,8 +102,8 @@ export default function Home() {
             <Image
               src='/CollaborateLight.png'
               alt='clip art image'
-              width={200}
-              height={250}
+              width={150}
+              height={150}
             />
             <h6 className='text-xl font-semibold'>Collaborate on your work</h6>
             <p className='text-csdark-700 dark:text-cslight-700'>
@@ -115,8 +115,8 @@ export default function Home() {
             <Image
               src='/ManageBusinessLight.png'
               alt='clip art image'
-              width={200}
-              height={250}
+              width={150}
+              height={150}
             />
             <h6 className='text-xl font-semibold'>Manage your business</h6>
             <p className='text-csdark-700 dark:text-cslight-700'>

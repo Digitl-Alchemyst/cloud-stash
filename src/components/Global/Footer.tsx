@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className='dark:bg-csdark-800 py-6 dark:text-cslight-600 bg-cslight-500 text-csdark-700'>
       <div className='container mx-auto flex flex-wrap justify-between'>
         <div className='mb-4 w-full sm:w-1/2 md:w-1/4 lg:w-1/6'>
-          <h3 className='mb-2 text-lg font-bold'>Dropbox</h3>
+          <h3 className='mb-2 text-lg font-bold'>Cloud Stash</h3>
           <ul>
             <li>Desktop app</li>
             <li>Mobile app</li>
@@ -29,7 +29,7 @@ const Footer = () => {
             <li>Professional</li>
             <li>Business</li>
             <li>Enterprise</li>
-            <li>Dropbox Sign</li>
+            <li>Cloudstash E-Sign</li>
             <li>DocSend</li>
           </ul>
         </div>
