@@ -48,27 +48,43 @@ export default function Home() {
         </div>
       </div>
 
+      <div className='flex flex-col items-center justify-center gap-y-5 bg-cslight-700 p-8 dark:bg-csdark-600'>
+        <h2 className='text-2xl font-bold'>
+          All of the document management tools you need in one custom plan.
+        </h2>
+        <p className='text-lg text-csdark-700 dark:text-cslight-700'>
+          Stash and share files. Sign and colaborate on documents. Encrypt,
+          sign, and verify with cryptographic signatures. All in one
+          application, on desktop or mobile.
+        </p>
+        <button className='flex items-center gap-x-2 underline'>
+          View Custom Plans <IoMdArrowForward />
+        </button>
+      </div>
+
       <div className='flex flex-col items-center justify-center gap-y-16 px-10 py-12'>
         <h1 className='text-4xl font-bold'>
           Cloud Stash can support your every need, from personal to enterprise
           solutions
         </h1>
-        <div className='flex space-x-26 flex-col space-y-16 items-center justify-evenly 2xl:flex-row'>
-          <div className='flex flex-col space-y-6 items-center justify-center w-66'>
+        <div className='flex flex-col items-center justify-evenly space-x-26 space-y-16 2xl:flex-row'>
+          <div className='flex w-66 flex-col items-center justify-center space-y-6'>
             <Image
               src='/ProtectFilesLight.png'
               alt='clip art image'
               width={200}
               height={250}
             />
-            <h6 className='text-xl font-semibold'>Store and protect your files</h6>
-            <p className='dark:text-cslight-700 text-csdark-700'>
+            <h6 className='text-xl font-semibold'>
+              Store and protect your files
+            </h6>
+            <p className='text-csdark-700 dark:text-cslight-700'>
               Starting at 3 TB of team storage and backup, with security
               features like file recovery, password protection, watermarking,
               and viewer history.
             </p>
           </div>
-          <div className='flex flex-col space-y-6 items-center justify-center w-66'>
+          <div className='flex w-66 flex-col items-center justify-center space-y-6'>
             <Image
               src='/SharedContentLight.png'
               alt='clip art image'
@@ -76,13 +92,13 @@ export default function Home() {
               height={250}
             />
             <h6 className='text-xl font-semibold'>Share your content</h6>
-            <p className='dark:text-cslight-700 text-csdark-700'>
+            <p className='text-csdark-700 dark:text-cslight-700'>
               Forget email attachments. With Dropbox, you can deliver large
               files and share trackable links with real-time document analytics
               to help make data-driven decisions.
             </p>
           </div>
-          <div className='flex flex-col space-y-6 items-center justify-center w-66'>
+          <div className='flex w-66 flex-col items-center justify-center space-y-6'>
             <Image
               src='/CollaborateLight.png'
               alt='clip art image'
@@ -90,12 +106,12 @@ export default function Home() {
               height={250}
             />
             <h6 className='text-xl font-semibold'>Collaborate on your work</h6>
-            <p className='dark:text-cslight-700 text-csdark-700'>
+            <p className='text-csdark-700 dark:text-cslight-700'>
               Reduce meetings with Capture and use Replay to streamline feedback
               and approval processes on video projects.
             </p>
           </div>
-          <div className='flex flex-col space-y-6 items-center justify-center w-66'>
+          <div className='flex w-66 flex-col items-center justify-center space-y-6'>
             <Image
               src='/ManageBusinessLight.png'
               alt='clip art image'
@@ -103,13 +119,22 @@ export default function Home() {
               height={250}
             />
             <h6 className='text-xl font-semibold'>Manage your business</h6>
-            <p className='dark:text-cslight-700 text-csdark-700'>
+            <p className='text-csdark-700 dark:text-cslight-700'>
               Make it easy to prepare, send, and eSign your most important
               contracts. Automate manual processes with tools like eSignature
               templates, which let you reuse documents in seconds.
             </p>
           </div>
         </div>
+      </div>
+
+      <div className='flex items-center justify-center space-x-6 bg-cslight-700 p-8 dark:bg-csdark-600'>
+        <h1 className='text-6xl font-bold'>
+          Get organized. Get Secure. Get Cloud Stash.
+        </h1>
+        <Button>
+          Start a free trial <IoMdArrowForward />
+        </Button>
       </div>
     </main>
   );

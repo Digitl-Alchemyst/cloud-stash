@@ -5,6 +5,7 @@ import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import Header from '@/c/Global/Header';
 import { ThemeProvider } from '@/components/Providers/ThemeProvider';
+import Footer from '@/components/Global/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           >
             <Header />
             {children}
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
