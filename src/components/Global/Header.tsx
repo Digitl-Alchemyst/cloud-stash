@@ -2,6 +2,7 @@ import { SignInButton, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import DLToggle from '@/c/Global/DLToggle'
 
 const Header = () => {
   return (
@@ -12,9 +13,9 @@ const Header = () => {
             <Image src='/text.png' alt='logo' width={250} height={50}/>
 
         </Link>
-        <div>
+        <div className='flex space-x-4'>
             {/* Theme Toggle  */}
-
+            <DLToggle />
             {/* User Button / Login Functions  */}
             <UserButton afterSignOutUrl="/"/>
             <SignedOut>
