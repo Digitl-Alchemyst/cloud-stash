@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className={`bg-dazure-900 text-cslight-500 ${inter.className}`}>
+        <body className={`bg-cslight-400 dark:bg-csdark-700 text-csdark-800 dark:text-cslight-400 ${inter.className}`}>
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
