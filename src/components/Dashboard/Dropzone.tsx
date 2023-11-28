@@ -77,7 +77,7 @@ function Dropzone() {
           const isFileTooLarge = fileRejections.length > 0 && fileRejections[0].file.size > maxSize;
 
           return (
-            <section className='mx-24 my-8'>
+            <section className='mx-24 my-8 w-full flex items-center justify-center'>
               <div
                 {...getRootProps()}
                 className={cn( 
