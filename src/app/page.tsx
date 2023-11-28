@@ -10,7 +10,7 @@ export default function Home() {
     <main className=''>
       <div className='flex flex-col items-center bg-cslight-600 p-8 dark:bg-csdark-500 xl:flex-row'>
         <div className='flex w-3/5 flex-col space-y-8 px-4'>
-          <h1 className='text-6xl font-bold'>
+          <h1 className='md:text-5xl text-2xl font-bold'>
             Your Complete Business Toolbox for Seamless Collaboration and
             Efficiency
           </h1>
