@@ -47,12 +47,10 @@ export const columns: ColumnDef<FileType>[] = [
     header: 'Download Link',
     cell: ({ renderValue, ...props }) => {
       const url = renderValue() as string;
-      const filename = renderValue(__filename) as string;
       return (
         <Link
           href={url}
           target='_blank'
-          download={filename}
           rel='noopener noreferrer'
           className='text-azure-500 underline hover:text-azure-600'
         >
