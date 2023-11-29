@@ -77,11 +77,11 @@ function Dropzone() {
           const isFileTooLarge = fileRejections.length > 0 && fileRejections[0].file.size > maxSize;
 
           return (
-            <section className='mx-24 my-8 w-full flex items-center justify-center'>
+            <section className='my-8 w-full flex items-center justify-center'>
               <div
                 {...getRootProps()}
                 className={cn( 
-                  'flex items-center justify-center w-full h-52 text-center rounded-md border py-18 ', 
+                  'flex items-center justify-center w-[350px] md:w-[500px] lg:w-[750px] h-52 text-center rounded-md border py-18', 
                   isDragActive ? 'border-dazure-500 bg-lazure-500  dark:border-azure-600 dark:bg-dazure-600' : 'border-dazure-600 bg-cslight-600  dark:border-azure-700 dark:bg-csdark-800'
                 )}
               >
