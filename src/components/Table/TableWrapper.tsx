@@ -16,6 +16,8 @@ function TableWrapper(
         <Button>Filter File Type</Button>
         <Button>Starred</Button>
         <Button>Recently Added</Button>
+        <Button>Move File</Button>
+        <Button>New Folder</Button>
         <Input type='search' placeholder='Search for files.' />
       </div>
 
