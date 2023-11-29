@@ -7,8 +7,25 @@ import Link from 'next/link';
 import prettyBytes from 'pretty-bytes';
 import { FileIcon, defaultStyles } from 'react-file-icon';
 import { COLOR_EXTENSION_MAP } from '#/constants';
+import { IoStarOutline, IoStar } from 'react-icons/io5';
 
 export const columns: ColumnDef<FileType>[] = [
+{
+  accessorKey: 'star',
+  header: 'Star',
+  cell: ({ renderValue, ...props }) => {
+    const starred = renderValue() as boolean;
+    return (
+      <div className='flex items-center justify-center'>
+        {starred ? (
+          <IoStar className='h-6 w-6 text-amber-500' />
+        ) : (
+          <IoStarOutline className='h-6 w-6' />
+        )}
+      </div>
+    );
+  },
+},
   {
     accessorKey: 'type',
     header: 'Type',
@@ -34,6 +51,19 @@ export const columns: ColumnDef<FileType>[] = [
   {
     accessorKey: 'timestamp',
     header: 'Date Added',
+    cell: ({ renderValue, ...props }) => {
+      const date = renderValue<Date>();
+      const formattedDate = date.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      });
+
+      return <span>{formattedDate}</span>;
+    },
   },
   {
     accessorKey: 'size',
