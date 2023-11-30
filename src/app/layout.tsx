@@ -14,9 +14,6 @@ export const metadata: Metadata = {
   description: 'A web application for securely storing &amp; sharing files.',
   keywords: [],
   publisher: 'Digital Alchemyst Studios | Alchemy Labs',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
@@ -27,7 +24,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en'>
-        <body className={`bg-cslight-400 dark:bg-csdark-700 text-csdark-800 dark:text-cslight-400 ${inter.className}`}>
+        <body
+          className={`bg-cslight-400 text-csdark-800 dark:bg-csdark-700 dark:text-cslight-400 ${inter.className}`}
+        >
           <ThemeProvider
             attribute='class'
             defaultTheme='system'

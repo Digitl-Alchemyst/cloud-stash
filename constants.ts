@@ -69,4 +69,6 @@ export const COLOR_EXTENSION_MAP: {
   bak: '#34495e',
   bak2: '#95a5a6',
   patch: '#f39c12',
+  ods: '#31de42',
+  odt: '#31df42',
 };
