@@ -78,14 +78,14 @@ export const columns: ColumnDef<FileType>[] = [
     cell: ({ renderValue, ...props }) => {
       const url = renderValue() as string;
       return (
-        <Link
+        <a
           href={url}
           target='_blank'
           rel='noopener noreferrer'
           className='text-azure-500 underline hover:text-azure-600'
         >
           Download File
-        </Link>
+        </a>
       );
     },
   },

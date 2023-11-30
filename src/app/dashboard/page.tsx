@@ -1,11 +1,9 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/function-component-definition */
 import { auth } from '@clerk/nextjs';
-import Dropzone from '@/c/Dashboard/Dropzone';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '#/firebase';
 import { FileType } from '#/typings';
-import TableWrapper from '@/components/Table/TableWrapper';
+import Dropzone from '@/c/Dashboard/Dropzone';
+import TableWrapper from '@/c/Table/TableWrapper';
 
 async function Dashboard() {
   const { userId } = auth();
@@ -22,14 +20,14 @@ async function Dashboard() {
   }));
 
   return (
-    <div className='flex h-full w-full flex-col items-center justify-center'>
+    <div className='flex w-full h-full flex-col items-center'>
       <Dropzone />
 
       <section className='container mx-6 mb-8 w-full space-y-5'>
         <h2 className='border-b border-turq-500 pb-2 pt-3 text-4xl font-bold text-turq-400 dark:border-azure-500 dark:text-azure-600'>
           Your Stash
         </h2>
-        <TableWrapper fileSkeleton={fileSkeleton}></TableWrapper>
+        <TableWrapper fileSkeleton={fileSkeleton} />
       </section>
     </div>
   );

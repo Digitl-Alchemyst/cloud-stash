@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='dark:bg-csdark-800 py-6 dark:text-cslight-600 bg-cslight-500 text-csdark-700 bottom-0'>
+    <footer className='dark:bg-csdark-800 py-6 dark:text-cslight-600 bg-cslight-500 text-csdark-700 bottom-0 w-full'>
       <div className='container mx-auto flex flex-wrap justify-between'>
         <div className='mb-4 w-full sm:w-1/2 md:w-1/4 lg:w-1/6'>
           <h3 className='mb-2 text-lg font-bold'>Cloud Stash</h3>
