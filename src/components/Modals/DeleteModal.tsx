@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-'use client'
+'use client';
 
-import { storage } from '#/firebase';
+import { db, storage } from '#/firebase';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -15,47 +15,53 @@ import {
 } from '@/components/ui/dialog';
 import { useAppStore } from '@/store/store';
 import { useUser } from '@clerk/nextjs';
+import { deleteDoc, doc } from 'firebase/firestore';
 import { deleteObject, ref } from 'firebase/storage';
 
 export function DeleteModal() {
+  const { user } = useUser();
 
-    const { user } = useUser();
+  const [
+    isDeleteModalOpen,
+    setIsDeleteModalOpen,
+    fileId,
+    setFileId,
+    setFilename,
+  ] = useAppStore((state) => [
+    state.isDeleteModalOpen,
+    state.setIsDeleteModalOpen,
+    state.fileId,
+    state.setFileId,
+    state.setFilename,
+  ]);
 
-      const [
-        isDeleteModalOpen,
-        setIsDeleteModalOpen,
-        fileId,
-        setFileId,
-        setFilename,
-      ] = useAppStore((state) => [
-        state.isDeleteModalOpen,
-        state.setIsDeleteModalOpen,
-        state.fileId,
-        state.setFileId,
-        state.setFilename,
-      ]);
+  async function deleteFile() {
+    if (!user || !fileId) return;
 
-      async function deleteFile() {
-        if (!user || !fileId) return;
+    const fileRef = ref(storage, `users/${user.id}/files/${fileId}`);
 
-        const fileRef = ref(storage, `users/${user.id}/files/${fileId}`);
-
-        await deleteObject(fileRef)
-            .then(async () => {
-                console.log('File has been deleted.');
-            })
-            .catch((error) => {
-                console.log('An Error has occured', (error))
-            })
-
-      }
+    try {
+      await deleteObject(fileRef)
+        .then(async () => {
+          deleteDoc(doc(db, 'users', user.id, 'files', fileId)).then(() => {
+            console.log('File has been deleted.');
+          });
+        })
+        .finally(() => {
+          setIsDeleteModalOpen(false);
+        });
+    } catch (error) {
+      console.log('An Error has occured', error);
+      setIsDeleteModalOpen(false);
+    }
+  }
 
   return (
     <Dialog
-        open={isDeleteModalOpen}
-        onOpenChange={(isOpen) => {
-            setIsDeleteModalOpen(isOpen);
-        }}
+      open={isDeleteModalOpen}
+      onOpenChange={(isOpen) => {
+        setIsDeleteModalOpen(isOpen);
+      }}
     >
       <DialogContent className='sm:max-w-md'>
         <DialogHeader>
@@ -68,7 +74,7 @@ export function DeleteModal() {
         <DialogFooter className='flex space-x-2 py-3'>
           <Button
             size='sm'
-            className='flex-1 px-3 border'
+            className='flex-1 border px-3'
             variant='ghost'
             onClick={() => setIsDeleteModalOpen(false)}
           >
@@ -77,7 +83,7 @@ export function DeleteModal() {
           </Button>
           <Button
             size='sm'
-            className='flex-1 px-3 border'
+            className='flex-1 border px-3'
             variant='ghost'
             onClick={() => deleteFile()}
           >
