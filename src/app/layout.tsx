@@ -26,7 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body
-          className={`bg-cslight-400 text-csdark-800 dark:bg-csdark-700 dark:text-cslight-400 ${inter.className}`}
+          className={`bg-cslight-400 text-csdark-800 dark:bg-csdark-700 dark:text-cslight-400 scrollbar-hide ${inter.className}`}
         >
           <ThemeProvider
             attribute='class'
