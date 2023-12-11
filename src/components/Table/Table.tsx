@@ -22,6 +22,7 @@ import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { IoPencilSharp } from 'react-icons/io5';
 import { useAppStore } from '@/store/store';
 import { DeleteModal } from '../Modals/DeleteModal';
+import RenameModal from '../Modals/RenameModal';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -87,7 +88,7 @@ export function DataTable<TData, TValue>({
               >
                 
                 <DeleteModal />
-
+                <RenameModal />
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {cell.column.id === 'filename' ? (
