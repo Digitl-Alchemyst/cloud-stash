@@ -22,6 +22,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function RenameModal() {
   const { user } = useUser();
@@ -38,11 +39,17 @@ function RenameModal() {
 
   const renameFile = async () => {
         if (!user || !fileId) return;
+        
+        const toastId = toast.loading('Renaming File...');
 
         await updateDoc(doc(db, 'users', user.id, 'files', fileId), {
           filename: input,
         });
 
+        toast.success('File Successfully Renamed', {
+          id: toastId,
+        });
+        
         setInput(''),
         setIsRenameModalOpen(false);
   };

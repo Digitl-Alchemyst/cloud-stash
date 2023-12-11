@@ -8,12 +8,14 @@ import DropzoneComponent from 'react-dropzone';
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { db, storage } from '#/firebase';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import toast from 'react-hot-toast';
 
 function Dropzone() {
 
   const [loading, setLoading] = useState(false);
   const { isLoaded, isSignedIn, user } = useUser();
 
+  
   const onDrop = (acceptedFiles: File[]) => {
     acceptedFiles.forEach(file => {
       const reader = new FileReader();
@@ -26,12 +28,13 @@ function Dropzone() {
       reader.readAsArrayBuffer(file);
     });
   };
-
+  
   const uploadFile = async (selectedFile: File) => {
     if (loading) return;
     if (!user) return;
-
+    
     setLoading(true);
+    const toastId = toast.loading('Uploading File...');
 
     //TODO: Implment Firebase Converters
     const docRef = await addDoc(collection(db, 'users', user.id, 'files'),{
@@ -53,7 +56,9 @@ function Dropzone() {
         downloadURL: downloadURL,
       });
     });
-
+    toast.success('File has been Stashed', {
+      id: toastId,
+    });
     setLoading(false);
   };
 
