@@ -11,6 +11,8 @@ import UserAvatar from './UserAvatar';
 
 
 function UserMenu() {
+  // Get Session Data
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
