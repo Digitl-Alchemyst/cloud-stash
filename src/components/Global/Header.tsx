@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import DLToggle from '@/c/Global/DLToggle'
 import { dark } from '@clerk/themes';
+import UserMenu from '../User/UserMenu'
 
 const Header = () => {
   return (
@@ -16,6 +17,7 @@ const Header = () => {
         {/* Theme Toggle  */}
         <DLToggle />
         {/* User Button / Login Functions  */}
+        <UserMenu />
         <UserButton
           afterSignOutUrl='/'
           
