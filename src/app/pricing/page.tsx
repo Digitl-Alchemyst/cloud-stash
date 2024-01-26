@@ -15,7 +15,7 @@ function PricingPage() {
             business or personal.
           </p>
         </div>
-        <div className='relative mt-6'>
+        <div className='relative mt-6 h-full'>
           <p className='mx-auto max-w-2xl text-lg leading-8 text-cslight-400'>
             If one of our standard plans do not fit your needs schedule a
             consultation for a custom plan with our sales team.
@@ -43,7 +43,7 @@ function PricingPage() {
 
       <div className='flow-root bg-cslight-300 pb-24 sm:pb-32'>
         <div className='mt-80'>
-          <PricingCards redirect={true} />{' '}
+          <PricingCards />{' '}
         </div>
       </div>
     </div>
