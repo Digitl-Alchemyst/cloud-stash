@@ -47,6 +47,8 @@ Cloud Stash
 <h3><ul><b>Concepts</b></ul></h3>
         CRUD Operations<br>
         File Encryption<br>
+        User Authentication<br>
+        Multi Tenant Architecture<br>
         Server Components<br>
         Data Caching<br>
         Server Side Rendering / Pre-Rendering<br>

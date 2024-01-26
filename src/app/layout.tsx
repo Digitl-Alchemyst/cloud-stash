@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Cloud Stash | Secure File Storage & Sharing',
-  description: 'A web application for securely storing &amp; sharing files.',
-  keywords: [],
+  description: 'A web application for securely storing & sharing files.',
+  keywords: 'cloud storage, cloud stash, file storage, secure storage, file sharing, secure file sharing, file collaboration, encrypted file storage, encrypted cloud storage, file storage app, cloud storage app',
   publisher: 'Digital Alchemyst Studios | Alchemy Labs',
 };
 
